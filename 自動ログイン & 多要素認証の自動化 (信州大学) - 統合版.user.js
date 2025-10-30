@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         自動ログイン & 多要素認証 (信州大学) - 統合版
+// @name         自動ログイン & 多要素認証の自動化 (信州大学) - 統合版
 // @match        *://gakunin.ealps.shinshu-u.ac.jp/idp/Authn/External*
 // @match        *://gakunin.ealps.shinshu-u.ac.jp/idp/profile/*
 // @match        https://login.microsoftonline.com/login.srf*
