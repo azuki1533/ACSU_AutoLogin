@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         自動ログイン & 2段階認証 (信州大学) - 統合版
+// @name         自動ログイン & 多要素認証 (信州大学) - 統合版
 // @match        *://gakunin.ealps.shinshu-u.ac.jp/idp/Authn/External*
 // @match        *://gakunin.ealps.shinshu-u.ac.jp/idp/profile/*
 // @match        https://login.microsoftonline.com/login.srf*
 // @version      3.1
-// @description  信州大学ACSUのログイン、2段階認証、および途中で表示されるMicrosoft認証画面をすべて自動化します。
+// @description  信州大学ACSUのログイン、多要素認証、および途中で表示されるMicrosoft認証画面をすべて自動化します。
 // @grant        none
 // ==/UserScript==
 
