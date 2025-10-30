@@ -2,8 +2,8 @@
 // @name         自動ログイン & 2段階認証 (信州大学) - 統合版
 // @match        *://gakunin.ealps.shinshu-u.ac.jp/idp/Authn/External*
 // @match        *://gakunin.ealps.shinshu-u.ac.jp/idp/profile/*
-// @match        https://login.microsoftonline.com/*
-// @version      3.0
+// @match        https://login.microsoftonline.com/login.srf*
+// @version      3.1
 // @description  信州大学ACSUのログイン、2段階認証、および途中で表示されるMicrosoft認証画面をすべて自動化します。
 // @grant        none
 // ==/UserScript==
@@ -11,36 +11,36 @@
 (function() {
     'use strict';
 
-    const hostname = window.location.hostname;
+    const currentUrl = window.location.href;
 
     // =======================================================================
     // 1. 信州大学のページ用の処理
     // =======================================================================
-    if (hostname.includes('shinshu-u.ac.jp')) {
+    if (currentUrl.includes('shinshu-u.ac.jp')) {
 
         // --- 設定: ここに自分のアカウント情報をすべて入力してください ---
         const accounts = [
-            // ▼ アカウントが1つの場合 (UIは表示されず、この情報で自動的に処理が進みます)
-            // {
-            //   name: 'アカウント名',
-            //   username: 'dummy',
-            //   password: 'dummy',
-            //   matrixOrder: ["A", "B", "C", "D"] // イメージマトリックスの順番
-            // },
+            // ▼ アカウントが1つの場合 (選択UIは表示されず、この情報で自動的に処理が進みます)
+            {
+                name: 'アカウント名', //好きな名前に変更可
+                username: 'dummy',
+                password: 'dummy',
+                matrixOrder: ["A", "B", "C", "D"] // アカウントのアルファベット順
+            },
 
             // ▼ アカウントが2つ以上の場合 (各ページでアカウント選択UIが表示されます)
-            {
-                name: 'アカウント名1',
-                username: 'dummy1',
-                password: 'dummy1',
-                matrixOrder: ["A", "B", "C", "D"] // 1つ目のアカウントのアルファベット順
-            },
-            {
-                name: 'アカウント名2',
-                username: 'dummy2',
-                password: 'dummy2',
-                matrixOrder: ["A", "B", "C", "D"] // 2つ目のアカウントのアルファベット順
-            },
+            // {
+            //    name: 'アカウント名1', //好きな名前に変更可
+            //    username: 'dummy1',
+            //   password: 'dummy1',
+            //    matrixOrder: ["A", "B", "C", "D"] // 1つ目のアカウントのアルファベット順
+            // },
+            // {
+            //    name: 'アカウント名2', //好きな名前に変更可
+            //    username: 'dummy2',
+            //    password: 'dummy2',
+            //    matrixOrder: ["A", "B", "C", "D"] // 2つ目のアカウントのアルファベット順
+            // },
         ];
         // -----------------------------------------------------------
 
@@ -241,7 +241,7 @@
     // =======================================================================
     // 2. Microsoftのページ用の処理
     // =======================================================================
-    else if (hostname.includes('microsoftonline.com')) {
+    else if (currentUrl.startsWith('https://login.microsoftonline.com/login.srf')) {
 
         console.log('[自動処理] Microsoft 認証ページを検出しました。');
 
