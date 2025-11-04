@@ -6,6 +6,7 @@
 // @version      3.1
 // @description  信州大学ACSUのログイン、多要素認証、および途中で表示されるMicrosoft認証画面をすべて自動化します。
 // @grant        none
+// @license      GPL-3.0 license
 // ==/UserScript==
 
 (function() {
